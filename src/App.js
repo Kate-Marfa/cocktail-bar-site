@@ -2,6 +2,7 @@ import React from "react";
 import { Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "./glass2.svg";
+import cart from './cart.svg'
 import AppRoutes from "./AppRoutes";
 
 function App() {
@@ -13,8 +14,11 @@ function App() {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <input />
-        <div className="basket"></div>
+        <input type="text" />
+        <button type="button">Пошук</button>
+        <div className="cart">
+          <img src={cart} alt="cart" />
+        </div>
       </header>
       <main>
         <AppRoutes />
