@@ -1,0 +1,18 @@
+.recommendation-cocktail-card {
+border: 2px solid #ff7f50;
+padding: 20px;
+margin-top: 20px;
+position: relative;
+max-width: 300px;
+background-color: #fffdf8;
+}
+
+.label {
+  background-color: #ff7f50;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
