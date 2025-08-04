@@ -6,7 +6,8 @@ export function MainPage() {
     apiUrl: "https://thecocktaildb.com/api/json/v1/1/random.php",
   });
 
-  const cocktail = data[0];
+    const drinks = data?.drinks ?? [];
+  const cocktail = drinks[0];
   const handleOrderClick = () => {
     if (cocktail) {
       console.log("Товар додано до корзини:", cocktail);
