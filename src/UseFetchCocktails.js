@@ -7,20 +7,18 @@ function useFetchCocktails({ apiUrl }) {
 
   useEffect(() => {
     if (!apiUrl) return;
-
     const fetchData = async () => {
       setLoading(true);
       setError(null);
 
       try {
         const url = `${apiUrl}`;
-        console.log("Fetching:", apiUrl);
 
         const res = await fetch(url);
         if (!res.ok) throw new Error("Network error");
 
         const json = await res.json();
-        setData(json.drinks || []);
+        setData(json);
       } catch (err) {
         setError("Failed to download.");
       } finally {
