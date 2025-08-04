@@ -16,3 +16,20 @@ background-color: #fffdf8;
   top: -10px;
   left: -10px;
 }
+
+.cocktails-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:16px;
+  list-style: none;
+  padding: 0;
+}
+
+.cocktail-card {
+  display: block;
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
