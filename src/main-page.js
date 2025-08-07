@@ -20,7 +20,7 @@ export function MainPage({ addToCart }) {
 
   return (
     <>
-      <h2>Для вибору коктелю скористайтеся пошуком або фільтром</h2>
+      <h2 className="recommendation-instruction">Для вибору коктелю скористайтеся пошуком або фільтром</h2>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {cocktail && (

@@ -28,11 +28,17 @@ export default function CocktailDetails({ addToCart }) {
   };
 
   return (
-    <div>
-      <h2>{cocktail.strDrink}</h2>
-      <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-      <p>{cocktail.strInstructions}</p>
-      <button onClick={handleOrderClick}>Order</button>
+    <div className="cocktail-details-container">
+      <img
+        className="img-cocktail"
+        src={cocktail.strDrinkThumb}
+        alt={cocktail.strDrink}
+      />
+      <div className="cocktail-info">
+        <h2>{cocktail.strDrink}</h2>
+        <p>{cocktail.strInstructions}</p>
+        <button onClick={handleOrderClick}>Order</button>
+      </div>
     </div>
   );
 }

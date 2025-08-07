@@ -48,7 +48,7 @@ export default function App() {
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <form onSubmit={onSubmit}>
+        <form className="search-container "onSubmit={onSubmit}>
           <input
             type="text"
             id="input-cocktail"
