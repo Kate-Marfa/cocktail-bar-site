@@ -1,16 +1,20 @@
 import React from "react";
 import useFetchCocktails from "./UseFetchCocktails";
 
-export function MainPage() {
+export function MainPage({ addToCart }) {
   const { data, loading, error } = useFetchCocktails({
     apiUrl: "https://thecocktaildb.com/api/json/v1/1/random.php",
   });
 
-    const drinks = data?.drinks ?? [];
+  const drinks = data?.drinks ?? [];
   const cocktail = drinks[0];
+
   const handleOrderClick = () => {
     if (cocktail) {
-      console.log("Товар додано до корзини:", cocktail);
+      console.log("cocktail:", cocktail);
+      addToCart(cocktail);
+    } else {
+      console.log("cocktail is undefined");
     }
   };
 
@@ -30,4 +34,3 @@ export function MainPage() {
     </>
   );
 }
-

@@ -3,17 +3,41 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "./glass2.svg";
 import cart from "./cart.svg";
 import AppRoutes from "./AppRoutes";
+import useCart from "./useCart";
+import CartModal from "./CartModal";
 
-function App() {
+export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
+  const handleCartClick = () => {
+    if (cartItems.length === 0) {
+      alert("First, choose a cocktail.");
+    } else {
+      setIsModalOpen(true);
+    }
+  };
+
+  const handleConfirm = () => {
+    console.log("Замовлені коктейлі:", cartItems);
+  };
+
+  const addToCart = (cocktail) => {
+    setCartItems((prevItems) => [...prevItems, cocktail]);
+  };
+
+  const onClear = () => {
+    setCartItems([]);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     setSearchQuery(searchInput);
-    navigate("/all-cocktails")
+    navigate("/all-cocktails");
   };
   return (
     <div className="App">
@@ -34,16 +58,27 @@ function App() {
           <button type="submit">Search</button>
         </form>
 
-        <div className="cart">
+        <div className="cart-icon" onClick={handleCartClick}>
           <img src={cart} alt="cart" />
+          {cartItems.length > 0 && (
+            <span className="cart-badge">{cartItems.length}</span>
+          )}
         </div>
+        <CartModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          cartItems={cartItems}
+          onConfirm={() => {
+            handleConfirm();
+            setIsModalOpen(false);
+            onClear();
+          }}
+        />
       </header>
       <main>
-        <AppRoutes searchQuery={searchQuery} />
+        <AppRoutes searchQuery={searchQuery} addToCart={addToCart} />
       </main>
       <footer></footer>
     </div>
   );
 }
-
-export default App;
