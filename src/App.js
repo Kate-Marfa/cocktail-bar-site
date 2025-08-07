@@ -3,8 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "./glass2.svg";
 import cart from "./cart.svg";
 import AppRoutes from "./AppRoutes";
-import useCart from "./useCart";
+// import useCart from "./useCart";
 import CartModal from "./CartModal";
+import SearchByAlphabet from "./search-by-alphabet";
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -78,7 +79,9 @@ export default function App() {
       <main>
         <AppRoutes searchQuery={searchQuery} addToCart={addToCart} />
       </main>
-      <footer></footer>
+      <footer>
+        <SearchByAlphabet />
+      </footer>
     </div>
   );
 }

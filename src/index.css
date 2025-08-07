@@ -65,3 +65,21 @@ background-color: #fffdf8;
   border-radius: 8px;
   width: 300px;
 }
+
+.alphabet-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 1em;
+}
+
+.alphabet-filter a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
+
+.alphabet-filter a:hover {
+color: #ff6f61;
+}

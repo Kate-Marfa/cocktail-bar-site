@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-export default function CocktailDetails() {
+export default function CocktailDetails({ addToCart }) {
   const { id } = useParams();
   const [cocktail, setCocktail] = useState(null);
 
@@ -18,11 +18,21 @@ export default function CocktailDetails() {
 
   if (!cocktail) return <p>Loading...</p>;
 
+  const handleOrderClick = () => {
+    if (cocktail) {
+      console.log("cocktail:", cocktail);
+      addToCart(cocktail);
+    } else {
+      console.log("cocktail is undefined");
+    }
+  };
+
   return (
     <div>
       <h2>{cocktail.strDrink}</h2>
       <img src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
       <p>{cocktail.strInstructions}</p>
+      <button onClick={handleOrderClick}>Order</button>
     </div>
   );
 }
